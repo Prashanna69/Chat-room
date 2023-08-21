@@ -6,17 +6,15 @@ import {
 } from "react-router-dom";
 
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
 import Dashboard from "./pages/Dashboard";
 import RootLayout from "./Layout/RootLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/login" element={<Login />} />
-      <Route path="/SignUp" element={<SignUp />} />
+      <Route index element={<Login />} />
       <Route path="/" element={<RootLayout />}>
-        <Route index element={<Dashboard />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
       </Route>
     </>
   )

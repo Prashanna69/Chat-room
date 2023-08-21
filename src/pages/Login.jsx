@@ -1,20 +1,16 @@
-import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, HStack, Input, Text } from "@chakra-ui/react";
 import {
   IoPersonCircle,
   IoLockClosed,
   IoFingerPrintSharp,
+  IoLogoGoogle,
 } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import SignUp from "./SignUp";
 
 export default function Login() {
   return (
     <>
-      <Box
-        w="auto"
-        minH="100vh"
-        bgGradient="linear(to-r, #141e30 20%, #243b55 60%)"
-      >
+      <Box w="auto" minH="100vh" bgGradient="linear(to-r, #ffc371 20%,#36d1dc)">
         <Flex
           align="center"
           justify="center"
@@ -28,8 +24,8 @@ export default function Login() {
               <Flex alignItems="center" gap="0.5rem" mt="2rem">
                 <IoPersonCircle size="2.5rem" color="gray" />
                 <Input
-                  type="text"
-                  placeholder="Username"
+                  type="email"
+                  placeholder="Email"
                   borderRadius="2rem"
                   bg="#331D2C"
                   color="white"
@@ -56,27 +52,21 @@ export default function Login() {
                 borderRadius="2rem"
                 colorScheme="red"
                 p="1rem"
-                boxShadow={"4px 6px 10px black"}
+                boxShadow={"4px 1px 10px black"}
               >
                 Log In
               </Button>
-              <Text
-                as="u"
-                color="white"
-                mt="0.5rem"
-                fontSize="15px"
-                fontWeight={600}
-              >
-                <NavLink to="/reset-password">Forgot Password?</NavLink>
-              </Text>
-              <Text color="white">
-                Don't have account?
-                <NavLink to="/SignUp" element={<SignUp />}>
-                  <Text as="b" ml="0.5rem" mt="1rem">
-                    Sign Up
-                  </Text>
-                </NavLink>
-              </Text>
+
+              <NavLink>
+                <Button
+                  borderRadius="2rem"
+                  mt="1rem"
+                  leftIcon={<IoLogoGoogle />}
+                  boxShadow={"4px 1px 10px black"}
+                >
+                  Sign in with Google
+                </Button>
+              </NavLink>
             </Flex>
           </Box>
         </Flex>
