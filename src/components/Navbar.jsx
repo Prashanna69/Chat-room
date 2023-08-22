@@ -25,7 +25,11 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useMemo, useState } from "react";
-import { IoFingerPrintSharp, IoEllipse, IoEyeOffSharp } from "react-icons/io5";
+import { IoFingerPrintSharp, IoEllipse, IoLogOut } from "react-icons/io5";
+
+import { auth } from "../Firebase";
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -33,6 +37,12 @@ export default function Navbar() {
 
   const [value, setValue] = useState("active");
   //
+
+  const navigate = useNavigate();
+
+  const SignOut = () => {
+    return signOut(auth);
+  };
 
   const avtarIcon = useMemo(() => {
     if (value === "dnd") return <Icon as={IoEllipse} color="red.600" />;
@@ -95,14 +105,30 @@ export default function Navbar() {
               <Divider />
               <ModalBody as="b">Are you sure?</ModalBody>
               <ModalFooter>
-                <Button colorScheme="whatsapp" mr={3} onClick={onClose}>
-                  Close
+                <Button
+                  colorScheme="blackAlpha"
+                  variant="outline"
+                  mr={3}
+                  onClick={onClose}
+                >
+                  Cancel
                 </Button>
-                <Button variant="ghost">Log out</Button>
+                <Button
+                  variant="solid"
+                  colorScheme="red"
+                  leftIcon={<IoLogOut />}
+                  onClick={() => {
+                    auth.signOut();
+                    localStorage.clear("email");
+                    navigate("/");
+                  }}
+                >
+                  Log out
+                </Button>
               </ModalFooter>
             </ModalContent>
           </Modal>
-          <Button colorScheme="whatsapp" onClick={onOpen}>
+          <Button colorScheme="blackAlpha" onClick={onOpen}>
             Log out
           </Button>
         </HStack>
