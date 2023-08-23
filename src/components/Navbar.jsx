@@ -53,7 +53,7 @@ export default function Navbar() {
 
   return (
     <>
-      <Flex as="nav" bg="#D8D9DA" p="1.5rem" wrap="wrap" alignItems="center">
+      <Flex as="nav" bg="#FFF6E0" p="1.5rem" wrap="wrap" alignItems="center">
         <IoFingerPrintSharp size="4rem" color="black" />
         <Heading>Chat-Room</Heading>
         <Spacer />
