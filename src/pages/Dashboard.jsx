@@ -29,7 +29,7 @@ import {
   IoVolumeMuteOutline,
   IoWarningOutline,
   IoEllipse,
-  IoSend,
+  IoSendSharp,
 } from "react-icons/io5";
 
 export default function Dashboard() {
@@ -62,7 +62,7 @@ export default function Dashboard() {
               p="0.5rem"
               bg="#1f1f1f"
               borderRadius="1rem"
-              _hover={{ background: "#1f1f2f" }}
+              _hover={{ background: "#1f1f2f", transition: "0.4s" }}
               cursor="pointer"
             >
               <Flex align="center" gap="1rem">
@@ -79,72 +79,91 @@ export default function Dashboard() {
             </Card>
           </Box>
           <Box bg="#272829" height="100vh" borderRadius="0 2rem 1rem 0">
-            <Box bg="#1f1f1f" p="0.8rem 2rem" borderRadius="0 2rem 0 0">
-              <Flex align="center" gap="1rem">
-                <Avatar size="sm" />
-                <Text as="b" color="white">
-                  John
-                </Text>
-                <Spacer />
+            <Flex flexDirection="column">
+              <Box bg="#1f1f1f" p="0.8rem 2rem" borderRadius="0 2rem 0 0">
+                <Flex align="center" gap="1rem">
+                  <Avatar size="sm" />
+                  <Text as="b" color="white">
+                    John
+                  </Text>
+                  <Spacer />
 
-                <IoCallOutline color="white" cursor="pointer" />
+                  <IoCallOutline color="white" cursor="pointer" />
 
-                <IoVideocamOutline color="white" cursor="pointer" />
-                <Menu>
-                  <MenuButton>
-                    <IoEllipsisVerticalOutline color="white" />
-                  </MenuButton>
-                  <MenuList bg="#272829" border="1px dashed black">
-                    <MenuGroup title="Option" color="white">
-                      <MenuItem
-                        icon={<EditIcon color="white" />}
-                        bg="#272829"
-                        color="white"
-                        _hover={{ background: "#1f1f1f" }}
-                      >
-                        Marked as Read
-                      </MenuItem>
-                      <Divider color="gray" />
-                      <MenuItem
-                        icon={<IoSearchOutline color="white" />}
-                        bg="#272829"
-                        color="white"
-                        _hover={{ background: "#1f1f1f" }}
-                      >
-                        Search Chat
-                      </MenuItem>
-                      <Divider color="gray" />
-                      <MenuItem
-                        icon={<IoTrashOutline color="white" />}
-                        bg="#272829"
-                        color="white"
-                        _hover={{ background: "#1f1f1f" }}
-                      >
-                        Delete
-                      </MenuItem>
-                      <Divider color="gray" />
-                      <MenuItem
-                        icon={<IoVolumeMuteOutline />}
-                        bg="#272829"
-                        color="white"
-                        _hover={{ background: "#1f1f1f" }}
-                      >
-                        Mute
-                      </MenuItem>
-                      <Divider color="gray" />
-                      <MenuItem
-                        icon={<IoWarningOutline color="red" />}
-                        bg="#272829"
-                        color="red"
-                        _hover={{ background: "#1f1f1f" }}
-                      >
-                        Block
-                      </MenuItem>
-                    </MenuGroup>
-                  </MenuList>
-                </Menu>
-              </Flex>
-            </Box>
+                  <IoVideocamOutline color="white" cursor="pointer" />
+                  <Menu>
+                    <MenuButton>
+                      <IoEllipsisVerticalOutline color="white" />
+                    </MenuButton>
+                    <MenuList bg="#272829" border="1px dashed black">
+                      <MenuGroup title="Option" color="white">
+                        <MenuItem
+                          icon={<EditIcon color="white" />}
+                          bg="#272829"
+                          color="white"
+                          _hover={{ background: "#1f1f1f" }}
+                        >
+                          Marked as Read
+                        </MenuItem>
+                        <Divider color="gray" />
+                        <MenuItem
+                          icon={<IoSearchOutline color="white" />}
+                          bg="#272829"
+                          color="white"
+                          _hover={{ background: "#1f1f1f" }}
+                        >
+                          Search Chat
+                        </MenuItem>
+                        <Divider color="gray" />
+                        <MenuItem
+                          icon={<IoTrashOutline color="white" />}
+                          bg="#272829"
+                          color="white"
+                          _hover={{ background: "#1f1f1f" }}
+                        >
+                          Delete
+                        </MenuItem>
+                        <Divider color="gray" />
+                        <MenuItem
+                          icon={<IoVolumeMuteOutline />}
+                          bg="#272829"
+                          color="white"
+                          _hover={{ background: "#1f1f1f" }}
+                        >
+                          Mute
+                        </MenuItem>
+                        <Divider color="gray" />
+                        <MenuItem
+                          icon={<IoWarningOutline color="red" />}
+                          bg="#272829"
+                          color="red"
+                          _hover={{ background: "#1f1f1f" }}
+                        >
+                          Block
+                        </MenuItem>
+                      </MenuGroup>
+                    </MenuList>
+                  </Menu>
+                </Flex>
+              </Box>
+              <Box bg="red" minH="2rem"></Box>
+              <InputGroup>
+                <InputRightElement
+                  pointerEvents="none"
+                  children={
+                    <IoSendSharp color="gray" style={{ cursor: "pointer" }} />
+                  }
+                />
+                <Input
+                  type="text"
+                  bg="#1f1f1f"
+                  borderRadius="0 0 1rem 0"
+                  color="gray.300"
+                  placeholder="Message..."
+                  border="none"
+                />
+              </InputGroup>
+            </Flex>
           </Box>
         </Grid>
       </Box>
