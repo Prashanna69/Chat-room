@@ -9,7 +9,6 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-  InputRightElement,
   Menu,
   MenuButton,
   MenuGroup,
@@ -17,7 +16,6 @@ import {
   MenuList,
   Spacer,
   Text,
-  VStack,
 } from "@chakra-ui/react";
 
 import {
@@ -38,7 +36,7 @@ export default function Dashboard() {
       <Box bg="#D8D9DA" p="1rem 2rem">
         <Grid templateColumns="1fr 3fr" gap="0.02rem">
           <Box
-            bg="#272829"
+            bg="#272828"
             height="100vh"
             borderRadius="2rem 0 0 1rem"
             p="1.4rem"
@@ -55,6 +53,8 @@ export default function Dashboard() {
                 color="gray.300"
                 placeholder="Search..."
                 border="none"
+                _hover={{ boxShadow: "2px 10px 10px black" }}
+                transition="0.4s"
               />
             </InputGroup>
             <Card
@@ -78,7 +78,7 @@ export default function Dashboard() {
               </Flex>
             </Card>
           </Box>
-          <Box bg="#272829" height="100vh" borderRadius="0 2rem 1rem 0">
+          <Box bg="#272829" minH="100vh" borderRadius="0 2rem 1rem 0">
             <Flex flexDirection="column">
               <Box bg="#1f1f1f" p="0.8rem 2rem" borderRadius="0 2rem 0 0">
                 <Flex align="center" gap="1rem">
@@ -146,23 +146,28 @@ export default function Dashboard() {
                   </Menu>
                 </Flex>
               </Box>
-              <Box bg="red" minH="2rem"></Box>
-              <InputGroup>
-                <InputRightElement
-                  pointerEvents="none"
-                  children={
-                    <IoSendSharp color="gray" style={{ cursor: "pointer" }} />
-                  }
-                />
+              <Box bg="red">
+                <Box></Box>
+              </Box>
+              <Flex align="center">
                 <Input
                   type="text"
                   bg="#1f1f1f"
-                  borderRadius="0 0 1rem 0"
+                  borderRadius="1rem 0 1rem 0"
                   color="gray.300"
                   placeholder="Message..."
                   border="none"
                 />
-              </InputGroup>
+                <IoSendSharp
+                  color="gray"
+                  style={{
+                    margin: "1rem",
+                    height: "24px",
+                    width: "30px",
+                    cursor: "pointer",
+                  }}
+                />
+              </Flex>
             </Flex>
           </Box>
         </Grid>
