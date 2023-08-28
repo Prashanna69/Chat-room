@@ -1,4 +1,4 @@
-import { ViewOffIcon } from "@chakra-ui/icons";
+// Importing necessary dependencies from Chakra UI, React Icons, Firebase, and React Router
 import {
   Avatar,
   AvatarBadge,
@@ -24,20 +24,18 @@ import {
   Spacer,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useMemo, useState } from "react";
+import { ViewOffIcon } from "@chakra-ui/icons";
 import { IoFingerPrintSharp, IoEllipse, IoLogOut } from "react-icons/io5";
-
 import { auth } from "../Firebase";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { useMemo, useState } from "react";
 
+// Defining the Navbar component
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  //
 
   const [value, setValue] = useState("active");
-  //
-
   const navigate = useNavigate();
 
   const SignOut = () => {
@@ -53,11 +51,13 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Navbar */}
       <Flex as="nav" bg="#FFF6E0" p="1.5rem" wrap="wrap" alignItems="center">
         <IoFingerPrintSharp size="4rem" color="black" />
         <Heading>Chat-Room</Heading>
         <Spacer />
         <HStack spacing="1rem">
+          {/* Status menu */}
           <Menu>
             <MenuButton transition="all 0.5s">
               <Avatar size="md">
@@ -97,6 +97,7 @@ export default function Navbar() {
               </MenuGroup>
             </MenuList>
           </Menu>
+          {/* Logout modal */}
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>

@@ -9,6 +9,8 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import RootLayout from "./Layout/RootLayout";
 
+//Creating the proper routing to navigate from one page to another.
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>

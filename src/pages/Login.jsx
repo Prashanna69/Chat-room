@@ -1,3 +1,4 @@
+// Importing necessary dependencies from Chakra UI, React Icons, Firebase, and React Router
 import { Box, Button, Flex, HStack, Input, Text } from "@chakra-ui/react";
 import {
   IoPersonCircle,
@@ -5,18 +6,18 @@ import {
   IoFingerPrintSharp,
   IoLogoGoogle,
 } from "react-icons/io5";
-
 import { auth, provider } from "../Firebase";
 import { signInWithPopup } from "firebase/auth";
 import { useEffect, useState } from "react";
-import Dashboard from "./Dashboard";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
+// Defining the Login component
 export default function Login() {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(""); // useState is used to get the value from the navigation bar to set up the status.
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // useNavigate is used to navigate from login page to dashboard after the authentication.
 
+  // Handling the Google Sign-In
   const handleSignIn = () => {
     signInWithPopup(auth, provider).then((data) => {
       setValue(data?.user?.email);
@@ -26,11 +27,14 @@ export default function Login() {
   };
 
   useEffect(() => {
-    setValue(localStorage.getItem("email"));
-  });
+    setValue(localStorage.getItem("email")); // value is kept in local storage for the fast login via Gmail.
+  }, []);
+
   return (
     <>
+      {/* Main container */}
       <Box w="auto" minH="100vh" bgGradient="linear(to-r, #ffc371 20%,#36d1dc)">
+        {/* Flex container */}
         <Flex
           align="center"
           justify="center"
@@ -38,7 +42,9 @@ export default function Login() {
           justifyItems="center"
           flexDir="column"
         >
+          {/* Content */}
           <Box p="2rem">
+            {/* Inner Flex container */}
             <Flex alignItems="center" flexDirection="column">
               <IoFingerPrintSharp size="4rem" color="black" />
               <Flex alignItems="center" gap="0.5rem" mt="2rem">
